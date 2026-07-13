@@ -1,0 +1,5 @@
+{
+  "id": "H04-calc",
+  "prompt": "在当前工作目录创建 calc.py，实现 evaluate(expr)：计算只包含 + - * /、括号和数字的算术表达式字符串，要遵守运算符优先级（先乘除后加减、括号优先），返回数值（整数或浮点）。不允许使用 Python 的 eval / exec。",
+  "verify_cmd": "python test_calc.py"
+}

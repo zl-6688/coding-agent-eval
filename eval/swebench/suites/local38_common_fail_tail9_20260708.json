@@ -1,0 +1,17 @@
+{
+  "schema": "ace.swebench-suite.v1",
+  "name": "local38_common_fail_tail9_20260708",
+  "source_dataset": "SWE-bench Verified",
+  "external_dataset_required": true,
+  "instance_ids": [
+    "sphinx-doc__sphinx-10673",
+    "sphinx-doc__sphinx-7590",
+    "sphinx-doc__sphinx-9461",
+    "sympy__sympy-13031",
+    "sympy__sympy-13091",
+    "sympy__sympy-14248",
+    "sympy__sympy-16597",
+    "sympy__sympy-20428",
+    "sympy__sympy-20438"
+  ]
+}

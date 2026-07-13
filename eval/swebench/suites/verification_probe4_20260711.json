@@ -1,0 +1,34 @@
+[
+  {
+    "instance_id": "django__django-11087",
+    "bucket": "historical_false_green",
+    "official_resolved": false,
+    "expected_verdict": "FAIL",
+    "approach_taken": "Constrain Collector.related_objects() to load only the relation field and primary key through QuerySet.only().",
+    "prediction_path": "eval/swebench/predictions_falsegreen5_coverage_stage1_qwen37plus80_20260709_00_django__django-11087.jsonl"
+  },
+  {
+    "instance_id": "pytest-dev__pytest-10356",
+    "bucket": "historical_false_green",
+    "official_resolved": false,
+    "expected_verdict": "FAIL",
+    "approach_taken": "Extend get_unpacked_marks() to walk class bases in the MRO and collect pytestmark values defined directly on each base.",
+    "prediction_path": "eval/swebench/predictions_common_fail_flash80_evidence_20260708_08_pytest-dev__pytest-10356.jsonl"
+  },
+  {
+    "instance_id": "django__django-11138",
+    "bucket": "officially_resolved_control",
+    "official_resolved": true,
+    "expected_verdict": "PASS",
+    "approach_taken": "Use the configured database connection timezone as the source of backend datetime conversion and thread source and target timezone values through the affected backend helpers.",
+    "prediction_path": "eval/swebench/predictions_common_fail_flash80_evidence_20260708_04_django__django-11138.jsonl"
+  },
+  {
+    "instance_id": "sympy__sympy-13031",
+    "bucket": "officially_resolved_control",
+    "official_resolved": true,
+    "expected_verdict": "PASS",
+    "approach_taken": "Replace sparse matrix join truthiness checks with an explicit 0x0 shape check in row_join() and col_join().",
+    "prediction_path": "eval/swebench/predictions_common_fail_tail9_qwen37plus80_20260708_03_sympy__sympy-13031.jsonl"
+  }
+]

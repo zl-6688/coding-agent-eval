@@ -1,0 +1,5 @@
+{
+  "id": "H03-fix-intervals",
+  "prompt": "当前工作目录有 intervals.py，其中 merge(intervals) 用于合并重叠区间，但有一个 bug：相邻/接触的区间（例如 [1,4] 和 [4,5]）没有被正确合并成 [1,5]。请先读代码，找出并修复这个 bug，不要改动函数签名。",
+  "verify_cmd": "python test_intervals.py"
+}

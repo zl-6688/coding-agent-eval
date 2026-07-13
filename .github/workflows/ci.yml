@@ -1,0 +1,221 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python 3.12 / Ubuntu
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      ACE_HOME: ${{ runner.temp }}/ace-home
+      TRACES_DIR: ${{ runner.temp }}/traces
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Build source and wheel distributions
+        id: build
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --sdist --wheel --outdir dist
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          from zipfile import ZipFile
+
+          wheels = sorted(Path("dist").glob("*.whl"))
+          sdists = sorted(Path("dist").glob("*.tar.gz"))
+          assert len(wheels) == 1, f"expected one wheel, found: {wheels}"
+          assert len(sdists) == 1, f"expected one sdist, found: {sdists}"
+          with ZipFile(wheels[0]) as archive:
+              members = [name for name in archive.namelist() if not name.endswith("/")]
+              metadata_names = [
+                  name for name in members if name.endswith(".dist-info/METADATA")
+              ]
+              assert len(metadata_names) == 1, metadata_names
+              metadata = archive.read(metadata_names[0]).decode("utf-8")
+          unexpected = []
+          for member in members:
+              top_level = PurePosixPath(member).parts[0]
+              if top_level not in {"agent", "obs"} and not top_level.endswith(".dist-info"):
+                  unexpected.append(member)
+          assert not unexpected, f"wheel contains non-runtime files: {unexpected}"
+          assert any(name.startswith("agent/") for name in members)
+          assert any(name.startswith("obs/") for name in members)
+          assert any(PurePosixPath(name).parts[0].endswith(".dist-info") for name in members)
+          assert "License-Expression: MIT" in metadata
+          assert "License-File: LICENSE" in metadata
+          assert "Description-Content-Type: text/markdown" in metadata
+          assert any(
+              name.endswith(".dist-info/licenses/LICENSE") for name in members
+          )
+          PY
+          wheel_path="$(python -c 'from pathlib import Path; print(next(Path("dist").glob("*.whl")).resolve())')"
+          echo "wheel=$wheel_path" >> "$GITHUB_OUTPUT"
+
+      - name: Verify the core wheel in a fresh environment
+        working-directory: ${{ runner.temp }}
+        shell: bash
+        env:
+          ACE_HOME: ${{ runner.temp }}/core-ace-home
+          TRACES_DIR: ${{ runner.temp }}/core-traces
+          WHEEL_PATH: ${{ steps.build.outputs.wheel }}
+        run: |
+          python -m venv "$RUNNER_TEMP/core-venv"
+          core_python="$RUNNER_TEMP/core-venv/bin/python"
+          core_ace="$RUNNER_TEMP/core-venv/bin/ace"
+          "$core_python" -m pip install "$WHEEL_PATH"
+          "$core_python" -m pip check
+          test ! -e "$ACE_HOME"
+          test ! -e "$TRACES_DIR"
+          "$core_python" - <<'PY'
+          import importlib.util
+          import os
+          import sysconfig
+          from pathlib import Path
+
+          import agent
+          import agent.loop
+          import obs
+
+          workspace = Path(os.environ["GITHUB_WORKSPACE"]).resolve()
+          site_packages = Path(sysconfig.get_paths()["purelib"]).resolve()
+          for module in (agent, agent.loop, obs):
+              source = Path(module.__file__).resolve()
+              assert source.is_relative_to(site_packages), source
+              assert not source.is_relative_to(workspace), source
+
+          def module_is_missing(name: str) -> bool:
+              try:
+                  return importlib.util.find_spec(name) is None
+              except ModuleNotFoundError:
+                  return True
+
+          assert module_is_missing("mcp"), "core wheel unexpectedly installed MCP"
+          assert module_is_missing("opentelemetry.sdk"), (
+              "core wheel unexpectedly installed the OpenTelemetry SDK"
+          )
+          PY
+          "$core_python" -m agent --help
+          "$core_ace" --help
+          "$core_python" "$GITHUB_WORKSPACE/scripts/run_task.py" --help
+          test ! -e "$ACE_HOME"
+          test ! -e "$TRACES_DIR"
+
+      - name: Verify MCP and OpenTelemetry wheel extras
+        working-directory: ${{ runner.temp }}
+        shell: bash
+        env:
+          WHEEL_PATH: ${{ steps.build.outputs.wheel }}
+        run: |
+          python -m venv "$RUNNER_TEMP/extras-venv"
+          extras_python="$RUNNER_TEMP/extras-venv/bin/python"
+          wheel_uri="$(WHEEL_PATH="$WHEEL_PATH" "$extras_python" - <<'PY'
+          import os
+          from pathlib import Path
+
+          print(Path(os.environ["WHEEL_PATH"]).resolve().as_uri())
+          PY
+          )"
+          "$extras_python" -m pip install \
+            "coding-agent-eval[mcp,otel] @ $wheel_uri"
+          "$extras_python" -m pip check
+          "$extras_python" - <<'PY'
+          import mcp
+          import opentelemetry.sdk
+          from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+          assert mcp is not None
+          assert opentelemetry.sdk is not None
+          assert OTLPSpanExporter is not None
+          PY
+
+      - name: Install test dependencies and the built wheel
+        shell: bash
+        env:
+          WHEEL_PATH: ${{ steps.build.outputs.wheel }}
+        run: |
+          python -m pip install ".[test,otel]"
+          python -m pip install --force-reinstall --no-deps "$WHEEL_PATH"
+          python -m pip check
+
+      - name: Verify wheel imports and CLI outside the checkout
+        working-directory: ${{ runner.temp }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          import sysconfig
+          from pathlib import Path
+
+          import agent
+          import obs
+
+          workspace = Path(os.environ["GITHUB_WORKSPACE"]).resolve()
+          site_packages = Path(sysconfig.get_paths()["purelib"]).resolve()
+          for module in (agent, obs):
+              source = Path(module.__file__).resolve()
+              assert source.is_relative_to(site_packages), (
+                  f"{module.__name__} did not load from site-packages: {source}"
+              )
+              assert not source.is_relative_to(workspace), (
+                  f"{module.__name__} leaked from the checkout: {source}"
+              )
+              print(f"{module.__name__}: {source}")
+          PY
+          python -m agent --help
+          ace --help
+
+      - name: Compile public Python sources
+        shell: bash
+        run: python -m compileall -q agent obs eval scripts tests
+
+      - name: Run POSIX filesystem safety contracts
+        shell: bash
+        run: |
+          python -m pytest -q \
+            tests/test_file_tools_read_state.py::test_atomic_overwrite_preserves_existing_file_mode \
+            tests/test_file_tools_read_state.py::test_extra_result_read_root_does_not_follow_a_symlink_outside_its_boundary
+
+      - name: Run root test suite with JUnit
+        shell: bash
+        run: python -m pytest --junitxml="$RUNNER_TEMP/pytest.xml"
+
+      - name: Run repository-only evaluation contract tests
+        shell: bash
+        run: |
+          python -m pytest -q \
+            eval/memory/tests \
+            eval/runtime_eval \
+            eval/memory_eval \
+            -m "not live"
+
+      - name: Reject unexpected test skips
+        shell: bash
+        run: python scripts/check_junit_skips.py "$RUNNER_TEMP/pytest.xml"
+
+      - name: Run explicit MCP gates outside repository outputs
+        shell: bash
+        run: |
+          python -m eval.mcp_eval.smoke \
+            --output "$RUNNER_TEMP/mcp-smoke.jsonl"
+          python -m eval.mcp_eval.reliability \
+            --output "$RUNNER_TEMP/mcp-reliability.jsonl"
+          test -s "$RUNNER_TEMP/mcp-smoke.jsonl"
+          test -s "$RUNNER_TEMP/mcp-reliability.jsonl"

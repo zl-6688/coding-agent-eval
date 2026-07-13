@@ -1,0 +1,68 @@
+{
+  "schema_version": "ace.compression.summary.v2",
+  "artifact_type": "sanitized_experiment_summary",
+  "experiment_snapshot": "2026-06-27",
+  "primary_result": {
+    "status": "PASS",
+    "workload": "six_dependent_evoclaw_ripgrep_milestones",
+    "model": "deepseek-v4-flash",
+    "conditions": {
+      "full_context_no_compaction": {
+        "recorded_repetitions": 1,
+        "peak_context_tokens": 268927,
+        "resolved_milestones": 2,
+        "declared_milestones": 6,
+        "scored_milestones": 4,
+        "infrastructure_unscored": 2,
+        "full_compaction_events": 0
+      },
+      "cache_aware_pipeline": {
+        "recorded_repetitions": 2,
+        "peak_context_tokens_approx": 166400,
+        "resolved_milestones": 2,
+        "declared_milestones": 6,
+        "scored_milestones": 6,
+        "full_compaction_events": 2
+      }
+    },
+    "decision_rule": "peak_context_reduced_and_resolved_count_not_reduced_and_compaction_observed",
+    "conclusion": "The cache-aware pipeline bounded peak context near the 167K design threshold while preserving the two observed resolved milestones on the fixed workload.",
+    "claim_type": "bounded_engineering_existence_result"
+  },
+  "secondary_diagnostic": {
+    "id": "warm_prefix_microcompaction_cache_pitfall",
+    "status": "PASS",
+    "token_triggered_micro": {
+      "peak_context_tokens_approx": 166900,
+      "resolved": "2/6",
+      "fresh_input_tokens_approx": 620000
+    },
+    "cache_cold_micro_full_pressure_valve": {
+      "peak_context_tokens_approx": 166400,
+      "resolved": "2/6",
+      "fresh_input_tokens_approx": 236000
+    },
+    "fresh_input_reduction_ratio": 2.6,
+    "role": "engineering_pitfall_not_primary_outcome"
+  },
+  "source_fingerprints": [
+    {
+      "logical_source": "compression_cache_cold_gate_report",
+      "sha256": "0f3aa7bd24c1b2760f1593dc10beab94ee7e3c19b38d11ab450b3e156f120bbd"
+    },
+    {
+      "logical_source": "evoclaw_three_arm_summary",
+      "sha256": "0e02f219bc825632315f871accf451c0824902761847b15c943f25c8727fdf44"
+    },
+    {
+      "logical_source": "evoclaw_three_arm_verdicts",
+      "sha256": "98fe353ceeff89b05763117330daaaf0fb50ec8f3f351d22c6bfbe42858fb8bc"
+    }
+  ],
+  "unsupported_claims": [
+    "population_level_solve_rate_improvement",
+    "universal_threshold_optimality",
+    "provider_billing_accuracy",
+    "semantic_correctness_of_every_compacted_state"
+  ]
+}

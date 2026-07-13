@@ -1,0 +1,174 @@
+{
+  "schema_version": "ace.automemory.summary.v1",
+  "artifact_type": "evaluation_summary",
+  "field_whitelist": {
+    "top_level": [
+      "schema_version",
+      "artifact_type",
+      "field_whitelist",
+      "experiment_snapshot",
+      "aggregate",
+      "result_records",
+      "status_definitions",
+      "claim_boundary"
+    ],
+    "result_record": [
+      "case_id",
+      "track",
+      "status",
+      "repetitions",
+      "write_success",
+      "recall_given_write",
+      "treatment_pass",
+      "control_pass",
+      "delta",
+      "reason_code"
+    ]
+  },
+  "experiment_snapshot": {
+    "date": "2026-07-07",
+    "scope": "cross_session_automemory_ab_precision_and_behavior_rollup",
+    "evidence_kind": "live_model_small_sample"
+  },
+  "aggregate": {
+    "valid_incremental_cases": 4,
+    "incremental_delta_min": 0.6,
+    "incremental_delta_max": 1.0,
+    "invalid_incremental_cases": 1,
+    "open_hard_negatives": 1
+  },
+  "result_records": [
+    {
+      "case_id": "H_proj",
+      "track": "incremental_ab",
+      "status": "PASS",
+      "repetitions": 5,
+      "write_success": "5/5",
+      "recall_given_write": "5/5",
+      "treatment_pass": "5/5",
+      "control_pass": "0/5",
+      "delta": 1.0,
+      "reason_code": "positive_increment"
+    },
+    {
+      "case_id": "H_fb2",
+      "track": "incremental_ab",
+      "status": "PASS",
+      "repetitions": 5,
+      "write_success": "5/5",
+      "recall_given_write": "4/5",
+      "treatment_pass": "4/5",
+      "control_pass": "0/5",
+      "delta": 0.8,
+      "reason_code": "positive_increment"
+    },
+    {
+      "case_id": "H_usr",
+      "track": "incremental_ab",
+      "status": "PASS",
+      "repetitions": 5,
+      "write_success": "3/5",
+      "recall_given_write": "2/3",
+      "treatment_pass": "2/5",
+      "control_pass": "0/5",
+      "delta": 0.667,
+      "reason_code": "positive_increment_write_limited"
+    },
+    {
+      "case_id": "H_ref",
+      "track": "incremental_ab",
+      "status": "PASS",
+      "repetitions": 5,
+      "write_success": "4/5",
+      "recall_given_write": "4/4",
+      "treatment_pass": "4/5",
+      "control_pass": "2/5",
+      "delta": 0.6,
+      "reason_code": "positive_increment_nonzero_control"
+    },
+    {
+      "case_id": "H_fb1",
+      "track": "incremental_ab",
+      "status": "INVALID",
+      "repetitions": 5,
+      "write_success": "5/5",
+      "recall_given_write": "4/5",
+      "treatment_pass": "4/5",
+      "control_pass": "5/5",
+      "delta": null,
+      "reason_code": "non_discriminating_control"
+    },
+    {
+      "case_id": "H_prec",
+      "track": "precision_ab",
+      "status": "PASS",
+      "repetitions": 3,
+      "write_success": "3/3",
+      "recall_given_write": null,
+      "treatment_pass": "3/3",
+      "control_pass": "3/3",
+      "delta": 0.0,
+      "reason_code": "no_scoped_memory_regression"
+    },
+    {
+      "case_id": "H_drift",
+      "track": "behavior",
+      "status": "PASS",
+      "repetitions": 5,
+      "write_success": null,
+      "recall_given_write": null,
+      "treatment_pass": "5/5",
+      "control_pass": null,
+      "delta": null,
+      "reason_code": "current_state_over_stale_memory"
+    },
+    {
+      "case_id": "H_ignore",
+      "track": "behavior",
+      "status": "PASS",
+      "repetitions": 5,
+      "write_success": null,
+      "recall_given_write": null,
+      "treatment_pass": "4/5",
+      "control_pass": null,
+      "delta": null,
+      "reason_code": "foil_and_ignore_conjunction"
+    },
+    {
+      "case_id": "H_neg_clean",
+      "track": "write_side_behavior",
+      "status": "PASS",
+      "repetitions": 3,
+      "write_success": null,
+      "recall_given_write": null,
+      "treatment_pass": "3/3",
+      "control_pass": null,
+      "delta": null,
+      "reason_code": "temporary_context_rejected"
+    },
+    {
+      "case_id": "H_neg",
+      "track": "write_side_hard_negative",
+      "status": "OPEN",
+      "repetitions": null,
+      "write_success": null,
+      "recall_given_write": null,
+      "treatment_pass": null,
+      "control_pass": null,
+      "delta": null,
+      "reason_code": "explicit_save_transient_conflict"
+    }
+  ],
+  "status_definitions": {
+    "PASS": "valid_evidence_met_expectation",
+    "FAIL": "valid_evidence_missed_expectation",
+    "INVALID": "experimental_precondition_not_met",
+    "INCONCLUSIVE": "insufficient_usable_evidence",
+    "ERROR": "runtime_or_evaluation_failure",
+    "OPEN": "unresolved_follow_up_not_a_sample_status"
+  },
+  "claim_boundary": {
+    "supported": "positive_cross_session_effect_in_four_discriminating_cases_plus_bounded_precision_and_behavior_probes",
+    "not_supported": "population_quality_product_comparison_production_reliability_or_complete_memory_precision"
+  }
+}

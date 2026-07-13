@@ -1,0 +1,6 @@
+retry_and_timing:
+  max_no_progress_attempts: 1
+  recovery_wait_seconds: 1
+  recover_message_timeout_seconds: 10800
+  resume_no_progress_retry_limit: 1
+  resume_no_progress_policy: exit

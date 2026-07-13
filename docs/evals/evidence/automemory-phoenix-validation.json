@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "evidence_type": "observability_integration_acceptance",
+  "status": "PASS",
+  "recorded_run": {
+    "run_id": "2026-07-06T10-29-53",
+    "case_id": "H_usr",
+    "repetitions_per_arm": 1,
+    "model_id": "deepseek-v4-flash",
+    "judge_model_id": "deepseek-v4-pro",
+    "sample_records": 2,
+    "valid_sample_records": 2
+  },
+  "native_root_spans": {
+    "expected": 2,
+    "matched": 2,
+    "runtime_status_ok": 2,
+    "arms": [
+      {
+        "arm": "A",
+        "span_name": "memory_eval.H_usr.A.run0",
+        "start_time_utc": "2026-07-06T10:29:54.737582+00:00",
+        "runtime_status": "OK",
+        "verdict": "PASS",
+        "expected_verdict": "PASS",
+        "expectation_met": true,
+        "outcome_class": "expected",
+        "sample_status": "VALID"
+      },
+      {
+        "arm": "B",
+        "span_name": "memory_eval.H_usr.B.run0",
+        "start_time_utc": "2026-07-06T10:30:53.891575+00:00",
+        "runtime_status": "OK",
+        "verdict": "FAIL",
+        "expected_verdict": "FAIL",
+        "expectation_met": true,
+        "outcome_class": "expected",
+        "sample_status": "VALID"
+      }
+    ]
+  },
+  "annotations": {
+    "root_spans_annotated": 2,
+    "annotation_records_read_back": 4,
+    "records_per_root_span": 2,
+    "names": [
+      "memory_eval_grader",
+      "memory_eval_packet"
+    ]
+  },
+  "phoenix_projection": {
+    "phoenix_version_rechecked": "17.9.0",
+    "project_name": "memory-eval",
+    "dataset_name": "memory-eval-2026-07-06T10-29-53",
+    "experiment_name": "memory-k1-H_usr-2026-07-06T10-29-53",
+    "object_ids_are_database_local": true,
+    "live_store_rechecked_on": "2026-07-13"
+  },
+  "source_fingerprints": {
+    "raw_jsonl_sha256": "77e8f39445efede95f11a2c2654e0e57d3452cf3ed74030bd9119cef600a323b",
+    "raw_markdown_sha256": "2ba6ede1e40dc9988c909c18fa21736100dfa9649f334c9ae6ee8be4bae7a174",
+    "validation_report_sha256": "5f551296c2507c56654851ce0e858516451c9bb8275c8ff995832943e354f30e"
+  },
+  "claim_boundary": "This k=1 run validates native span export, runtime-versus-eval status semantics, annotation readback, and Dataset/Experiment projection. It is not a stable estimate of AutoMemory quality and is excluded from the repeated A/B capability result. Raw traces remain local because they contain model and repository content."
+}

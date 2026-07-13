@@ -1,0 +1,5 @@
+{
+  "id": "T01-quicksort",
+  "prompt": "在当前工作目录创建 quicksort.py，实现函数 quicksort(lst)：对列表升序排序并返回一个新列表，不要修改入参。",
+  "verify_cmd": "python test_quicksort.py"
+}

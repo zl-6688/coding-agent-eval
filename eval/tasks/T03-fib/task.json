@@ -1,0 +1,5 @@
+{
+  "id": "T03-fib",
+  "prompt": "在当前工作目录创建 fib.py，实现函数 fib(n)：返回第 n 个斐波那契数（0-indexed，fib(0)=0, fib(1)=1）。",
+  "verify_cmd": "python test_fib.py"
+}

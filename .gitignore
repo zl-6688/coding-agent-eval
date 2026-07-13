@@ -1,0 +1,46 @@
+# Python bytecode and test/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+/.mcp.json
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Runtime and generated evaluation artifacts
+.traces/
+.tool_results/
+workspace/
+.ace/
+eval/reports/
+eval/mcp_eval/results/
+eval/memory/results/
+eval/evoclaw/results/
+eval/swebench/predictions*.jsonl
+eval/swebench/resolved*.jsonl
+eval/swebench/batch_results*.jsonl
+eval/swebench/instances.json
+eval/swebench/eval_set.json
+eval/swebench/verified*.json
+*.pid
+*.log
+
+# Editor and operating-system files
+.obsidian/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

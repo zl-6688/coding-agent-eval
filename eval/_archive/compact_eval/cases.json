@@ -1,0 +1,25 @@
+[
+  {"id": "user-early", "dimension": "single", "needles": [
+    {"key": "XK-9920", "text": "重要：部署用的 API key 是 XK-9920，后面要用到。", "pos": "early", "where": "user"}],
+   "qa": {"q": "部署用的 API key 是什么？", "expect": ["XK-9920"]}},
+  {"id": "user-mid", "dimension": "single", "needles": [
+    {"key": "8443", "text": "把服务监听端口从 80 改成 8443。", "pos": "mid", "where": "user"}],
+   "qa": {"q": "服务最终应该监听哪个端口？", "expect": ["8443"]}},
+  {"id": "user-late", "dimension": "single", "needles": [
+    {"key": "Frankfurt", "text": "数据中心选在 Frankfurt。", "pos": "late", "where": "user"}],
+   "qa": {"q": "数据中心选在哪个城市？", "expect": ["Frankfurt"]}},
+  {"id": "tool-output", "dimension": "tool-output", "needles": [
+    {"key": "42 failed", "text": "关键：测试结果是 42 failed, 308 passed，需要修。", "pos": "mid", "where": "tool"}],
+   "qa": {"q": "上一次测试有多少个用例失败了？", "expect": ["42"]}},
+  {"id": "multi", "dimension": "multi", "needles": [
+    {"key": "Alice", "text": "项目负责人是 Alice。", "pos": "early", "where": "user"},
+    {"key": "v2.3.1", "text": "目标版本是 v2.3.1。", "pos": "mid", "where": "user"},
+    {"key": "Redis", "text": "缓存层用 Redis。", "pos": "late", "where": "user"}],
+   "qa": {"q": "项目负责人是谁？目标版本号是多少？缓存层用什么技术？", "expect": ["Alice", "v2.3.1", "Redis"]}},
+  {"id": "contradiction", "dimension": "contradiction", "needles": [
+    {"key": "PostgreSQL", "text": "更正：数据库不用 MySQL 了，改用 PostgreSQL。", "pos": "mid", "where": "user", "anti": "MySQL"}],
+   "qa": {"q": "最终决定用哪个数据库？", "expect": ["PostgreSQL"], "forbid": ["MySQL"]}},
+  {"id": "preference", "dimension": "preference", "needles": [
+    {"key": "tabs", "text": "我的偏好：代码缩进用 tabs，不要 spaces。", "pos": "early", "where": "user"}],
+   "qa": {"q": "我对代码缩进的偏好是什么？", "expect": ["tab"]}}
+]

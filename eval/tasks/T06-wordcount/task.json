@@ -1,0 +1,5 @@
+{
+  "id": "T06-wordcount",
+  "prompt": "在当前工作目录创建 wordcount.py，实现函数 word_count(text)：把文本按空白切分成单词，统计每个单词出现次数，返回 dict（单词 -> 次数）。单词要转成小写。空文本返回空 dict。",
+  "verify_cmd": "python test_wordcount.py"
+}

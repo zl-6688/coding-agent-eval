@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coding-agent-eval"
+version = "0.1.0"
+description = "An observable coding-agent runtime with memory, skills, subagents, and reproducible evaluation tools"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "anthropic>=0.111,<1",
+    "python-dotenv>=1.0,<2",
+    "prompt-toolkit>=3.0,<4",
+    "rich>=13.0,<15",
+]
+
+[project.optional-dependencies]
+mcp = [
+    "mcp>=1.28,<2",
+]
+otel = [
+    "opentelemetry-api~=1.42.1",
+    "opentelemetry-sdk~=1.42.1",
+    "opentelemetry-exporter-otlp-proto-http~=1.42.1",
+]
+phoenix = [
+    "arize-phoenix==17.9.0",
+]
+test = [
+    "httpx>=0.28,<1",
+    "mcp>=1.28,<2",
+    "pytest>=9.1,<10",
+]
+
+[project.scripts]
+ace = "agent.cli.repl:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agent", "agent.*", "obs", "obs.*"]
+exclude = ["eval*", "examples*", "scripts*", "tests*"]
+namespaces = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-ra -m 'not live'"
+markers = [
+    "live: tests that require a configured model endpoint or another external service",
+]

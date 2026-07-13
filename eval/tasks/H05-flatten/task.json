@@ -1,0 +1,5 @@
+{
+  "id": "H05-flatten",
+  "prompt": "在当前工作目录创建 flatten.py，实现 flatten(d)：把嵌套的 dict 压平成单层 dict，嵌套的键用英文句点 '.' 连接。例如 {\"a\": {\"b\": 1}} 压平为 {\"a.b\": 1}。只处理 dict 嵌套：值若是 dict 就递归展开，否则作为叶子保留。空 dict 返回空 dict。",
+  "verify_cmd": "python test_flatten.py"
+}

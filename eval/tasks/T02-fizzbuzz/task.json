@@ -1,0 +1,5 @@
+{
+  "id": "T02-fizzbuzz",
+  "prompt": "在当前工作目录创建 fizzbuzz.py，实现函数 fizzbuzz(n)：返回一个长度为 n 的字符串列表，对应 1..n。能被 3 整除用 'Fizz'，被 5 整除用 'Buzz'，同时被 3 和 5 整除用 'FizzBuzz'，否则用该数字的字符串形式。",
+  "verify_cmd": "python test_fizzbuzz.py"
+}

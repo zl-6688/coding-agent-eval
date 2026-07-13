@@ -1,0 +1,5 @@
+{
+  "id": "H02-lru-cache",
+  "prompt": "在当前工作目录创建 lru.py，实现 class LRUCache：__init__(self, capacity) 设定容量；get(self, key) 返回对应值，不存在返回 -1，并把该 key 标记为最近使用；put(self, key, value) 写入或更新，若超过容量则淘汰最久未使用的 key。",
+  "verify_cmd": "python test_lru.py"
+}

@@ -1,0 +1,5 @@
+{
+  "id": "T05-fix-bug",
+  "prompt": "当前工作目录有一个 stats.py，里面的 mean() 函数有 bug（结果不对）。请先读它，找出并修复 bug，使其返回算术平均值。不要改动函数签名。",
+  "verify_cmd": "python test_stats.py"
+}

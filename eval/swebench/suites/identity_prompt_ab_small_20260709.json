@@ -1,0 +1,12 @@
+{
+  "schema": "ace.swebench-suite.v1",
+  "name": "identity_prompt_ab_small_20260709",
+  "source_dataset": "SWE-bench Verified",
+  "external_dataset_required": true,
+  "instance_ids": [
+    "django__django-11087",
+    "sympy__sympy-20428",
+    "sympy__sympy-16597",
+    "django__django-11138"
+  ]
+}

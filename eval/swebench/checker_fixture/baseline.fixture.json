@@ -1,0 +1,16 @@
+{
+  "schema_version": "coding-agent-eval.swe-checker.baseline.v1",
+  "baseline_id": "synthetic-checker-oracle-v1",
+  "suite_id": "synthetic-checker-selftest-v1",
+  "not_for_gate": true,
+  "expected_resolutions": [
+    {
+      "instance_id": "synthetic-resolved",
+      "resolved": true
+    },
+    {
+      "instance_id": "synthetic-unresolved",
+      "resolved": false
+    }
+  ]
+}

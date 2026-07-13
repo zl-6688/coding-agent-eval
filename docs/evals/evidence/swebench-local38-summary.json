@@ -1,0 +1,137 @@
+{
+  "schema_version": "ace.swebench.practice-summary.v2",
+  "artifact_type": "sanitized_multi_round_official_harness_summary",
+  "experiment_snapshot": "2026-07",
+  "suite": {
+    "name": "verified_local38",
+    "instances": 38,
+    "same_instance_ids_across_local38_stages": true
+  },
+  "flash_campaign": {
+    "model": "deepseek-v4-flash",
+    "first_full_suite_pass": {
+      "official_resolved": 16,
+      "official_scored": 38,
+      "rate": 0.4211,
+      "role": "single_pass_baseline"
+    },
+    "selected_failure_pool_retry": {
+      "input_cases": 22,
+      "official_resolved": 5,
+      "new_unique_resolutions": 5,
+      "condition_changes": [
+        "untracked_model_patch_capture_fixed",
+        "expanded_task_and_verification_prompt"
+      ],
+      "rescued_instance_ids": [
+        "astropy__astropy-14369",
+        "matplotlib__matplotlib-25775",
+        "sphinx-doc__sphinx-10673",
+        "sympy__sympy-13031",
+        "sympy__sympy-13091"
+      ],
+      "role": "selected_retry_after_harness_iteration"
+    },
+    "cumulative_unique_coverage": {
+      "official_resolved_unique": 21,
+      "suite_instances": 38,
+      "rate": 0.5526,
+      "claim_type": "campaign_coverage_not_single_pass_rate"
+    }
+  },
+  "pro_full_suite": {
+    "model": "deepseek-v4-pro",
+    "condition": "updated_harness_and_prompt_max_turns_50",
+    "official_resolved": 19,
+    "official_scored": 38,
+    "rate": 0.5,
+    "role": "fresh_single_pass",
+    "failure_buckets": {
+      "FAIL_TO_PASS_STILL_FAILING": 10,
+      "INCOMPLETE_PLUS_REGRESSION": 5,
+      "NO_PATCH": 4
+    },
+    "unresolved_hitting_turn_cap": 12,
+    "unresolved_with_patch": 15,
+    "patched_failures_overlapping_gold_file": 13
+  },
+  "pro_budget_diagnostic": {
+    "composite_resolved": 22,
+    "suite_instances": 38,
+    "condition": "selected_max_turns_100_retries_merged_with_pro50_view",
+    "role": "diagnostic_composite_not_fresh_full_suite_baseline"
+  },
+  "edit_transport_followup": {
+    "status": "PASS",
+    "sentinels": 5,
+    "before": {
+      "winerror_206_runs": 5,
+      "structured_partial_edit_runs": 1,
+      "shell_source_fallback_runs": 5,
+      "gold_viable_official_resolved": "1/4"
+    },
+    "after": {
+      "winerror_206_runs": 0,
+      "structured_partial_edit_runs": 5,
+      "shell_source_fallback_runs": 0,
+      "gold_viable_official_resolved": "3/4"
+    },
+    "claim_type": "targeted_runtime_mechanism_closure"
+  },
+  "claude_code_deepseek_hard_slice": {
+    "suite": "fixed_screen8",
+    "instances": 8,
+    "model": "deepseek-v4-flash",
+    "harness": "claude-code-2.1.207-full-native-container",
+    "rounds": [
+      {
+        "condition": "thinking_enabled_no_explicit_max",
+        "official_resolved": 2,
+        "official_scored": 8
+      },
+      {
+        "condition": "explicit_max_effort",
+        "official_resolved": 1,
+        "official_scored": 8,
+        "previous_failures_rescued": 0,
+        "cross_round_pass_to_fail": 1
+      }
+    ],
+    "bounded_interpretation": "A mature harness did not rescue the six persistent hard cases; model semantic understanding and convergence remain material, while harness quality still shapes execution.",
+    "not_a_strict_head_to_head": true
+  },
+  "source_fingerprints": [
+    {
+      "logical_source": "flash_first_full_suite",
+      "sha256": "ce1b9294e69f3af2aa3ea99c481f43ba761ef1858bb9de860e7e846543392f4a"
+    },
+    {
+      "logical_source": "flash_selected_failure_retry",
+      "sha256": "05373b05ffb010e4f0b169b2fff71b9171b805164d675dfd9b658b516f34aef0"
+    },
+    {
+      "logical_source": "pro_full_suite",
+      "sha256": "6eb8cd308fbe76946e32ae365b0712c559cea4d42f9b38d306bd2c57c4c5f3aa"
+    },
+    {
+      "logical_source": "flash_pro_comparison_rollup",
+      "sha256": "2af045ac5a21f74ad7dad648a909c5650b3a355a93d8dcaa26a6b0c2cd44e012"
+    },
+    {
+      "logical_source": "claude_code_native_default_effort",
+      "sha256": "a97585c62ee89ee9ff1b14641a1ceeca79e4121b8a94d1b7101de96b77a11d8c"
+    },
+    {
+      "logical_source": "claude_code_native_max_effort",
+      "sha256": "3fb243cd57e1a133f1f77d2d1cb34dd39fa42d76afa919cb11853f58e45aa76d"
+    }
+  ],
+  "unsupported_claims": [
+    "flash_21_of_38_as_a_fresh_single_pass_rate",
+    "direct_flash_vs_pro_ranking",
+    "full_swebench_leaderboard_performance",
+    "population_level_edit_transport_gain",
+    "strict_local_harness_vs_claude_code_head_to_head",
+    "frozen_repeat_3_release_baseline"
+  ]
+}

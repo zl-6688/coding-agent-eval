@@ -1,0 +1,13 @@
+{
+  "schema": "ace.swebench-suite.v1",
+  "name": "edit_primitive_sentinel5_20260710",
+  "source_dataset": "SWE-bench Verified",
+  "external_dataset_required": true,
+  "instance_ids": [
+    "astropy__astropy-8707",
+    "django__django-11138",
+    "pydata__xarray-6938",
+    "sphinx-doc__sphinx-7590",
+    "sympy__sympy-13031"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "id": "T04-palindrome",
+  "prompt": "在当前工作目录创建 palindrome.py，实现函数 is_palindrome(s)：判断字符串是否回文，忽略大小写和所有非字母数字字符。空串视为回文。返回 True/False。",
+  "verify_cmd": "python test_palindrome.py"
+}

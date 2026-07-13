@@ -1,0 +1,33 @@
+{
+  "schema_version": "coding-agent-eval.swe-checker.suite.v1",
+  "suite_id": "synthetic-checker-selftest-v1",
+  "not_for_gate": true,
+  "instances": [
+    {
+      "instance_id": "synthetic-resolved",
+      "tests": [
+        {
+          "test_id": "fix-regression",
+          "kind": "FAIL_TO_PASS"
+        },
+        {
+          "test_id": "keep-behavior",
+          "kind": "PASS_TO_PASS"
+        }
+      ]
+    },
+    {
+      "instance_id": "synthetic-unresolved",
+      "tests": [
+        {
+          "test_id": "fix-still-fails",
+          "kind": "FAIL_TO_PASS"
+        },
+        {
+          "test_id": "keep-still-passes",
+          "kind": "PASS_TO_PASS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "echo": {
+      "transport": "stdio",
+      "command": "python",
+      "args": ["echo_server.py"],
+      "tools": {
+        "echo": {
+          "always_load": false,
+          "search_hint": "echo text through the example stdio MCP server"
+        }
+      }
+    }
+  }
+}

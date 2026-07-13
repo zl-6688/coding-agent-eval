@@ -1,0 +1,5 @@
+{
+  "id": "H01-roman",
+  "prompt": "在当前工作目录创建 roman.py，实现两个函数：to_roman(n) 把整数(1..3999)转成罗马数字字符串；from_roman(s) 把罗马数字字符串转回整数。必须正确处理减法记法（4=IV, 9=IX, 40=XL, 90=XC, 400=CD, 900=CM）。",
+  "verify_cmd": "python test_roman.py"
+}

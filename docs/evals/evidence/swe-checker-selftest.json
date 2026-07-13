@@ -1,0 +1,81 @@
+{
+  "artifact_hashes": {
+    "baseline": {
+      "path": "eval/swebench/checker_fixture/baseline.fixture.json",
+      "sha256": "8a68cafaace8c14eb1b752dec640c6e32bc3629723a42bbdd26c71a816e46780"
+    },
+    "results": {
+      "path": "eval/swebench/checker_fixture/results.jsonl",
+      "sha256": "828574e4d78f0e8b72157710c2f3bfe95229e8d76846fcbd56ff7bff45eefa8e"
+    },
+    "suite": {
+      "path": "eval/swebench/checker_fixture/suite.json",
+      "sha256": "c2d85e9a678b38652d78f977432cc0579421a72b0089feea257a9afa42c72769"
+    }
+  },
+  "baseline_id": "synthetic-checker-oracle-v1",
+  "claim": "synthetic_checker_self_test",
+  "code_version": "WORKTREE",
+  "environment": {
+    "machine": "AMD64",
+    "platform": "Windows",
+    "python_implementation": "CPython",
+    "python_version": "3.12.10"
+  },
+  "gate_eligible": false,
+  "instance_count": 2,
+  "instance_outcomes": [
+    {
+      "computed_resolved": true,
+      "expected_resolved": true,
+      "instance_id": "synthetic-resolved",
+      "status": "PASS",
+      "test_statuses": {
+        "FAIL_TO_PASS": [
+          {
+            "status": "PASS",
+            "test_id": "fix-regression"
+          }
+        ],
+        "PASS_TO_PASS": [
+          {
+            "status": "PASS",
+            "test_id": "keep-behavior"
+          }
+        ]
+      }
+    },
+    {
+      "computed_resolved": false,
+      "expected_resolved": false,
+      "instance_id": "synthetic-unresolved",
+      "status": "PASS",
+      "test_statuses": {
+        "FAIL_TO_PASS": [
+          {
+            "status": "FAIL",
+            "test_id": "fix-still-fails"
+          }
+        ],
+        "PASS_TO_PASS": [
+          {
+            "status": "PASS",
+            "test_id": "keep-still-passes"
+          }
+        ]
+      }
+    }
+  ],
+  "protocol_fingerprint": "1448e6b343ac8a1cf0a8608442d2cbf785bac2d808069d421797daa318406f7d",
+  "protocol_version": "swe-checker-protocol-v1",
+  "run_id": "synthetic-checker-run-v1",
+  "schema_version": "coding-agent-eval.swe-checker.output.v1",
+  "status": "PASS",
+  "suite_id": "synthetic-checker-selftest-v1",
+  "timestamp_utc": "2026-07-12T15:18:28.009090Z",
+  "what_this_does_not_prove": [
+    "This synthetic self-test does not measure a coding agent or model.",
+    "It does not establish a SWE-bench resolved rate or benchmark performance.",
+    "It does not validate repository checkout, patch application, container execution, or the official SWE-bench harness."
+  ]
+}
