@@ -26,6 +26,9 @@ from . import style as style_mod
 from .working_indicator import active as working_active
 
 
+REPL_DEFAULT_MAX_TURNS = 100
+
+
 def _relative_time(mtime: float, now: float = None) -> str:
     """把时间戳格式化成"x 秒/分钟/小时/天前"（6e 选择器显示用，纯函数可单测）。"""
     now = now if now is not None else time.time()
@@ -990,7 +993,7 @@ def run_repl(workpath=None, *, read_input=None, run_task_fn=None, out=print,
              model_state=None,
              resume_at_start=False, resume_session_id=None,
              enable_mcp=None, mcp_config_path=None, enable_deferred_tools=None,
-             disable_mcp=False):
+             disable_mcp=False, max_turns=REPL_DEFAULT_MAX_TURNS):
     """启动交互式会话。
 
     resume_at_start（6e，对齐 CC `claude -r`）：True 且 TTY → 启动后先弹会话选择器、resume 选中的，
@@ -1009,6 +1012,7 @@ def run_repl(workpath=None, *, read_input=None, run_task_fn=None, out=print,
     mcp_config_path：显式 MCP 配置文件路径；None 表示让 Session.run 读取 env 默认值。
     enable_deferred_tools：显式控制 deferred schema；None 时 MCP 启用则 Session 默认开启。
     disable_mcp   ：全局抑制 MCP；优先于 env、本地配置和显式配置路径。
+    max_turns     ：每个交互任务的主循环上限；REPL 默认高于程序化 API。
     """
     import os
     import sys
@@ -1099,7 +1103,7 @@ def run_repl(workpath=None, *, read_input=None, run_task_fn=None, out=print,
     model_pick_cb = make_model_pick_cb(workpath, mstate, out) if is_tty else None
 
     # 跑任务：默认 Session.run（trace=False 在 Session 内强制）；烟测注入假 runner。
-    run_task_kwargs = {}
+    run_task_kwargs = {"max_turns": max_turns}
     if enable_mcp is not None:
         run_task_kwargs["enable_mcp"] = enable_mcp
     if mcp_config_path is not None:
@@ -1222,6 +1226,8 @@ def main(argv=None):
                         help="禁用 MCP；优先于环境变量、本地配置和 --mcp-config")
     parser.add_argument("--no-deferred", action="store_true",
                         help="MCP 启用时仍关闭 deferred schema selection")
+    parser.add_argument("--max-turns", type=int, default=REPL_DEFAULT_MAX_TURNS,
+                        help=f"每个交互任务的最大 Agent 轮数（默认 {REPL_DEFAULT_MAX_TURNS}）")
     args = parser.parse_args(argv)
     resume_session_id = args.resume if isinstance(args.resume, str) else None
     run_repl(
@@ -1232,6 +1238,7 @@ def main(argv=None):
         mcp_config_path=args.mcp_config,
         enable_deferred_tools=False if args.no_deferred else None,
         disable_mcp=args.no_mcp,
+        max_turns=args.max_turns,
     )
 
 

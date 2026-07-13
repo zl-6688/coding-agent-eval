@@ -1309,6 +1309,38 @@ def test_exit_prints_resume_hint_instead_of_goodbye(tmp_path, monkeypatch):
     assert not any("再见" in line for line in lines)
 
 
+def test_run_repl_defaults_to_one_hundred_max_turns(tmp_path, monkeypatch):
+    ace_home = tmp_path / "ace"
+    project = tmp_path / "project"
+    ace_home.mkdir()
+    project.mkdir()
+    monkeypatch.setenv("ACE_HOME", str(ace_home))
+    script = iter(["inspect the project", "/exit"])
+    captured = []
+
+    def fake_run(_session, _task, **kwargs):
+        captured.append(kwargs)
+        return "done"
+
+    repl.run_repl(
+        project,
+        read_input=lambda: next(script, None),
+        run_task_fn=fake_run,
+        out=lambda _line: None,
+        register_sink=False,
+    )
+
+    assert captured == [{"max_turns": 100}]
+
+
+def test_programmatic_run_task_default_remains_twenty_turns() -> None:
+    import inspect
+
+    from agent import loop
+
+    assert inspect.signature(loop.run_task).parameters["max_turns"].default == 20
+
+
 def test_run_repl_accepts_explicit_resume_session_id(tmp_path, monkeypatch):
     ace_home = tmp_path / "ace"
     project = tmp_path / "project"
@@ -1352,6 +1384,16 @@ def test_main_maps_resume_id_and_picker_modes(monkeypatch):
     assert calls[0][1]["resume_at_start"] is False
     assert calls[1][1]["resume_session_id"] is None
     assert calls[1][1]["resume_at_start"] is True
+
+
+def test_main_maps_explicit_max_turns_override(monkeypatch):
+    captured = {}
+
+    monkeypatch.setattr(repl, "run_repl", lambda *args, **kwargs: captured.update(kwargs))
+
+    repl.main(["--max-turns", "37"])
+
+    assert captured["max_turns"] == 37
 
 
 def test_main_maps_no_mcp_as_global_suppression(monkeypatch):
