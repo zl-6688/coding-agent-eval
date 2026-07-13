@@ -273,7 +273,11 @@ def test_repl_passes_explicit_mcp_kwargs_to_runner():
     assert captured == [
         (
             "task with mcp",
-            {"enable_mcp": True, "mcp_config_path": "project.mcp.json"},
+            {
+                "max_turns": 100,
+                "enable_mcp": True,
+                "mcp_config_path": "project.mcp.json",
+            },
         )
     ]
     return 1
