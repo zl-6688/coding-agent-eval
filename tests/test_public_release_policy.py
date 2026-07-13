@@ -242,6 +242,18 @@ def test_mcp_regressions_are_kept_without_promoting_a_flagship_eval_track():
     assert violations == []
 
 
+def test_ci_initializes_runtime_paths_after_runner_is_available():
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(
+        encoding="utf-8"
+    )
+    job_env = re.search(r"(?m)^    env:\n(?P<body>(?:^      [^\n]*\n)+)", workflow)
+
+    assert job_env is not None
+    assert "${{ runner." not in job_env.group("body")
+    assert 'echo "ACE_HOME=$RUNNER_TEMP/ace-home" >> "$GITHUB_ENV"' in workflow
+    assert 'echo "TRACES_DIR=$RUNNER_TEMP/traces" >> "$GITHUB_ENV"' in workflow
+
+
 def test_relative_import_targets_exist_in_the_candidate_tree():
     violations = []
     for path in sorted(ROOT.rglob("*.py")):

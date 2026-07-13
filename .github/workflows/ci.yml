@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
-      ACE_HOME: ${{ runner.temp }}/ace-home
-      TRACES_DIR: ${{ runner.temp }}/traces
       PIP_DISABLE_PIP_VERSION_CHECK: "1"
       PYTHONUNBUFFERED: "1"
 
@@ -28,6 +26,12 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+
+      - name: Initialize temporary runtime paths
+        shell: bash
+        run: |
+          echo "ACE_HOME=$RUNNER_TEMP/ace-home" >> "$GITHUB_ENV"
+          echo "TRACES_DIR=$RUNNER_TEMP/traces" >> "$GITHUB_ENV"
 
       - name: Build source and wheel distributions
         id: build
