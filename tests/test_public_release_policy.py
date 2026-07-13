@@ -4,6 +4,7 @@ import ast
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -252,6 +253,26 @@ def test_ci_initializes_runtime_paths_after_runner_is_available():
     assert "${{ runner." not in job_env.group("body")
     assert 'echo "ACE_HOME=$RUNNER_TEMP/ace-home" >> "$GITHUB_ENV"' in workflow
     assert 'echo "TRACES_DIR=$RUNNER_TEMP/traces" >> "$GITHUB_ENV"' in workflow
+
+
+def test_ci_explicit_pytest_node_ids_are_collectable():
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(
+        encoding="utf-8"
+    )
+    node_ids = re.findall(
+        r"(?m)^\s*(tests/[A-Za-z0-9_./-]+::test_[A-Za-z0-9_]+)\s*\\?\s*$",
+        workflow,
+    )
+
+    assert node_ids
+    collected = subprocess.run(
+        [sys.executable, "-m", "pytest", "--collect-only", "-q", *node_ids],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert collected.returncode == 0, collected.stdout + collected.stderr
 
 
 def test_relative_import_targets_exist_in_the_candidate_tree():
