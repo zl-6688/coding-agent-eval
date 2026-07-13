@@ -1,6 +1,6 @@
 # Evaluation
 
-[English](evaluation.md) | [简体中文](evaluation.zh-CN.md)
+[English](./evaluation.md) | [简体中文](./evaluation.zh-CN.md)
 
 The evaluation stack is organized into three layers so that a green regression test is never presented as model-quality evidence, and a selected diagnostic rerun is never presented as a fresh benchmark rate.
 

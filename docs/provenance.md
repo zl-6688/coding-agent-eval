@@ -1,6 +1,6 @@
 # Provenance and Publication Scope
 
-[English](provenance.md) | [简体中文](provenance.zh-CN.md)
+[English](./provenance.md) | [简体中文](./provenance.zh-CN.md)
 
 This repository is an educational and engineering project for building, observing, and evaluating a coding-agent harness.
 

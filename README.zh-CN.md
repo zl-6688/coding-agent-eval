@@ -1,6 +1,6 @@
 # Coding Agent Eval
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](./README.md) | [简体中文](./README.zh-CN.md)
 
 一个可观测、可评估的 coding agent harness：不仅回答 Agent 是否成功，还能解释它为何成功或失败。
 

@@ -4,7 +4,7 @@ type: eval-report
 status: complete
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Cross-session AutoMemory A/B, precision, drift, ignore, and temporary-context results.
 refs:
   - "automemory-design.md"
@@ -16,7 +16,7 @@ refs:
 
 # AutoMemory Evaluation Report
 
-[English](automemory-report.md) | [简体中文](automemory-report.zh-CN.md)
+[English](./automemory-report.md) | [简体中文](./automemory-report.zh-CN.md)
 
 > **Experiment snapshot:** 2026-07-07
 >

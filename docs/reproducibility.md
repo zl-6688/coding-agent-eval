@@ -1,6 +1,6 @@
 # Reproducibility
 
-[English](reproducibility.md) | [简体中文](reproducibility.zh-CN.md)
+[English](./reproducibility.md) | [简体中文](./reproducibility.zh-CN.md)
 
 This document separates reproducible offline contracts from paid, environment-dependent model and benchmark experiments.
 

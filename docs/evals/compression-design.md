@@ -4,13 +4,13 @@ type: eval-design
 status: frozen
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Protocol for measuring context-window control and task preservation on a continuous coding workload.
 ---
 
 # Context Compression Evaluation Design
 
-[English](compression-design.md) | [简体中文](compression-design.zh-CN.md)
+[English](./compression-design.md) | [简体中文](./compression-design.zh-CN.md)
 
 > **Experiment snapshot:** 2026-06-27
 >

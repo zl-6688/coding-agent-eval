@@ -4,7 +4,7 @@ type: eval-report
 status: complete
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 多轮官方评测框架结果、失败诊断、运行时修复，以及 Claude Code 运行框架/模型边界探测。
 refs:
   - "evidence/swebench-local38-summary.json"
@@ -14,7 +14,7 @@ refs:
 
 # SWE-bench Verified 工程实践
 
-[English](swebench-verified-practice.md) | [简体中文](swebench-verified-practice.zh-CN.md)
+[English](./swebench-verified-practice.md) | [简体中文](./swebench-verified-practice.zh-CN.md)
 
 ## 摘要
 

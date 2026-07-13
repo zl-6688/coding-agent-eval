@@ -1,6 +1,6 @@
 # Runtime Architecture
 
-[English](architecture.md) | [简体中文](architecture.zh-CN.md)
+[English](./architecture.md) | [简体中文](./architecture.zh-CN.md)
 
 This document maps the executed code path and distinguishes default runtime behavior from opt-in and library-only features.
 

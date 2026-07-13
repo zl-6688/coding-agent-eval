@@ -1,6 +1,6 @@
 # 评估体系
 
-[English](evaluation.md) | [简体中文](evaluation.zh-CN.md)
+[English](./evaluation.md) | [简体中文](./evaluation.zh-CN.md)
 
 评估体系分为三个层级，避免把回归测试通过包装成模型质量证据，也避免把经过筛选的诊断性重跑包装成一轮全新的 benchmark 通过率。
 

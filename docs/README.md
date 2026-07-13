@@ -1,6 +1,6 @@
 # Documentation
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](./README.md) | [简体中文](./README.zh-CN.md)
 
 This directory keeps the public documentation intentionally small. The landing page explains the project; architecture and observability explain how it works; the three flagship evaluation reports show what was measured and learned.
 
@@ -8,7 +8,7 @@ This directory keeps the public documentation intentionally small. The landing p
 
 | Topic | English | 简体中文 |
 |---|---|---|
-| Project overview | [README](../README.md) | [项目概览](../README.zh-CN.md) |
+| Repository landing page | [README](../README.md) | [项目首页](../README.zh-CN.md) |
 | Runtime architecture | [Architecture](architecture.md) | [运行时架构](architecture.zh-CN.md) |
 | Observability | [Observability](observability.md) | [可观测性](observability.zh-CN.md) |
 | Evaluation hierarchy | [Evaluation](evaluation.md) | [评估体系](evaluation.zh-CN.md) |

@@ -1,6 +1,6 @@
 # Coding Agent Eval
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](./README.md) | [简体中文](./README.zh-CN.md)
 
 An observable and evaluable coding-agent harness for answering not only whether an agent succeeded, but why it succeeded or failed.
 

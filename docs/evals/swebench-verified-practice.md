@@ -4,7 +4,7 @@ type: eval-report
 status: complete
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Multi-round official-harness results, failure diagnosis, runtime fixes, and a Claude Code harness/model-boundary probe.
 refs:
   - "evidence/swebench-local38-summary.json"
@@ -14,7 +14,7 @@ refs:
 
 # SWE-bench Verified Engineering Practice
 
-[English](swebench-verified-practice.md) | [简体中文](swebench-verified-practice.zh-CN.md)
+[English](./swebench-verified-practice.md) | [简体中文](./swebench-verified-practice.zh-CN.md)
 
 ## TL;DR
 

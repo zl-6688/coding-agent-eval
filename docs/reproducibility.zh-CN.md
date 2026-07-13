@@ -1,6 +1,6 @@
 # 可复现性
 
-[English](reproducibility.md) | [简体中文](reproducibility.zh-CN.md)
+[English](./reproducibility.md) | [简体中文](./reproducibility.zh-CN.md)
 
 本文档将可复现的离线契约与需要付费且依赖环境的模型及 benchmark 实验区分开来。
 

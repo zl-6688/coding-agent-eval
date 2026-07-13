@@ -4,13 +4,13 @@ type: eval-report
 status: complete
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Continuous-task result showing bounded peak context without a drop in resolved milestone count.
 ---
 
 # Context Compression Evaluation Report
 
-[English](compression-report.md) | [简体中文](compression-report.zh-CN.md)
+[English](./compression-report.md) | [简体中文](./compression-report.zh-CN.md)
 
 > **Experiment snapshot:** 2026-06-27
 >

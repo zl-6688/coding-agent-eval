@@ -1,6 +1,6 @@
 # 来源与公开范围
 
-[English](provenance.md) | [简体中文](provenance.zh-CN.md)
+[English](./provenance.md) | [简体中文](./provenance.zh-CN.md)
 
 本仓库是一个用于构建、观测和评估 coding-agent harness 的学习与工程研究项目。
 

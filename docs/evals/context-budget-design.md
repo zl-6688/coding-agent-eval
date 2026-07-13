@@ -4,23 +4,23 @@ type: eval-design
 status: draft
 created: 2026-07-12 16:27
 updated: 2026-07-12 17:16
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Deterministic protocol for checking request-only context-budget invariants.
 refs:
   - "context-budget-report.md"
   - "../../eval/context_eval/budget.py"
   - "../../eval/context_eval/cases.py"
 changelog:
-  - "2026-07-12 17:16 · project-maintainers · Added complete case and evidence-field glossary entries, provisional status, and GitHub-native links."
-  - "2026-07-12 16:36 · project-maintainers · Isolated evaluation cases from the ambient trace sink."
-  - "2026-07-12 16:34 · project-maintainers · Completed evidence-format and claim-boundary glossary entries."
-  - "2026-07-12 16:32 · project-maintainers · Required exact selected/result coverage and rejected empty selections."
-  - "2026-07-12 16:27 · project-maintainers · Created the Public V1 offline design and gate contract."
+  - "2026-07-12 17:16 · zl-6688 · Added complete case and evidence-field glossary entries, provisional status, and GitHub-native links."
+  - "2026-07-12 16:36 · zl-6688 · Isolated evaluation cases from the ambient trace sink."
+  - "2026-07-12 16:34 · zl-6688 · Completed evidence-format and claim-boundary glossary entries."
+  - "2026-07-12 16:32 · zl-6688 · Required exact selected/result coverage and rejected empty selections."
+  - "2026-07-12 16:27 · zl-6688 · Created the Public V1 offline design and gate contract."
 ---
 
 # Context Budget Offline Evaluation Design
 
-[English](context-budget-design.md) | [简体中文](context-budget-design.zh-CN.md)
+[English](./context-budget-design.md) | [简体中文](./context-budget-design.zh-CN.md)
 
 ## 1. Glossary
 

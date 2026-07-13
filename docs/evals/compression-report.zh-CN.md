@@ -4,13 +4,13 @@ type: eval-report
 status: complete
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 连续任务结果表明，峰值上下文受到控制，同时已解决 milestone 数量没有下降。
 ---
 
 # 上下文压缩评估报告
 
-[English](compression-report.md) | [简体中文](compression-report.zh-CN.md)
+[English](./compression-report.md) | [简体中文](./compression-report.zh-CN.md)
 
 > **实验快照：** 2026-06-27
 >

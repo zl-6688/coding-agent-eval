@@ -4,17 +4,17 @@ type: module-spec
 status: active
 created: 2026-07-13 12:46
 updated: 2026-07-13 18:52
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 运行时追踪、隐私边界、本地可视化，以及从 trace 到评分的诊断。
 refs: ["../obs/trace.py", "../obs/viewer.py", "../obs/otel.py", "../agent/runtime/observability.py", "../scripts/start_phoenix.py", "../eval/memory/to_phoenix.py", "../eval/memory/aggregate_phoenix.py"]
 changelog:
-  - "2026-07-13 18:52 · project-maintainers · 补充已验证的 Phoenix 启动、trace 检查和 memory-eval 审阅流程"
-  - "2026-07-13 12:46 · project-maintainers · 新增公开的可观测性总览与证据边界"
+  - "2026-07-13 18:52 · zl-6688 · 补充已验证的 Phoenix 启动、trace 检查和 memory-eval 审阅流程"
+  - "2026-07-13 12:46 · zl-6688 · 新增公开的可观测性总览与证据边界"
 ---
 
 # 可观测性
 
-[English](observability.md) | [简体中文](observability.zh-CN.md)
+[English](./observability.md) | [简体中文](./observability.zh-CN.md)
 
 可观测层把一次 Agent 运行转化为可检查的证据：哪一轮做出了某项决策，哪个工具修改了仓库，错误从何处进入运行过程，最终生成了什么 patch，以及官方 evaluator 是否接受了它。
 

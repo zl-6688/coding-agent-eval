@@ -1,6 +1,6 @@
 # 文档导航
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](./README.md) | [简体中文](./README.zh-CN.md)
 
 本目录刻意保持精简：首页说明项目价值，架构与可观测性文档解释系统如何工作，三条核心评估报告展示实际测量结果与工程结论。
 
@@ -8,7 +8,7 @@
 
 | 主题 | English | 简体中文 |
 |---|---|---|
-| 项目概览 | [README](../README.md) | [项目概览](../README.zh-CN.md) |
+| 仓库首页 | [README](../README.md) | [项目首页](../README.zh-CN.md) |
 | 运行时架构 | [Architecture](architecture.md) | [运行时架构](architecture.zh-CN.md) |
 | 可观测性 | [Observability](observability.md) | [可观测性](observability.zh-CN.md) |
 | 评估体系 | [Evaluation](evaluation.md) | [评估体系](evaluation.zh-CN.md) |

@@ -3,7 +3,7 @@ message: "If you use this software, please cite it using the metadata below."
 title: "coding-agent-eval"
 type: software
 authors:
-  - name: "coding-agent-eval contributors"
+  - name: "zl-6688"
 version: 0.1.0
 license: MIT
 abstract: "An observable coding-agent runtime with sessions, memory, skills, subagents, extensible tools, and multi-track evaluation harnesses."

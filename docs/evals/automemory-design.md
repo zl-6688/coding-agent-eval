@@ -4,7 +4,7 @@ type: eval-design
 status: frozen
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Public protocol for cross-session AutoMemory A/B, precision, and behavior evaluations.
 refs:
   - "automemory-report.md"
@@ -14,7 +14,7 @@ refs:
 
 # AutoMemory Evaluation Design
 
-[English](automemory-design.md) | [简体中文](automemory-design.zh-CN.md)
+[English](./automemory-design.md) | [简体中文](./automemory-design.zh-CN.md)
 
 > **Protocol snapshot:** 2026-07-07 evaluation rollup
 >

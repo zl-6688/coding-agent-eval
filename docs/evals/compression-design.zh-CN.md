@@ -4,13 +4,13 @@ type: eval-design
 status: frozen
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 在连续 coding 工作负载上衡量上下文窗口控制与任务结果保持情况的协议。
 ---
 
 # 上下文压缩评估设计
 
-[English](compression-design.md) | [简体中文](compression-design.zh-CN.md)
+[English](./compression-design.md) | [简体中文](./compression-design.zh-CN.md)
 
 > **实验快照：** 2026-06-27
 >

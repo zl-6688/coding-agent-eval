@@ -1,6 +1,6 @@
 # 运行时架构
 
-[English](architecture.md) | [简体中文](architecture.zh-CN.md)
+[English](./architecture.md) | [简体中文](./architecture.zh-CN.md)
 
 本文档梳理实际执行的代码路径，并区分默认运行时行为、可选启用功能和仅作为库提供的功能。
 

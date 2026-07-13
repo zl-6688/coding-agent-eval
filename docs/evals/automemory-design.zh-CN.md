@@ -4,7 +4,7 @@ type: eval-design
 status: frozen
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 面向公开发布的跨会话 AutoMemory A/B、精确性与行为评估协议。
 refs:
   - "automemory-report.md"
@@ -14,7 +14,7 @@ refs:
 
 # AutoMemory 评估设计
 
-[English](automemory-design.md) | [简体中文](automemory-design.zh-CN.md)
+[English](./automemory-design.md) | [简体中文](./automemory-design.zh-CN.md)
 
 > **协议快照：** 2026-07-07 评估汇总
 >

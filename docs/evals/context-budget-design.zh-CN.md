@@ -4,23 +4,23 @@ type: eval-design
 status: draft
 created: 2026-07-12 16:27
 updated: 2026-07-12 17:16
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 用于检查请求级上下文预算不变量的确定性协议。
 refs:
   - "context-budget-report.md"
   - "../../eval/context_eval/budget.py"
   - "../../eval/context_eval/cases.py"
 changelog:
-  - "2026-07-12 17:16 · project-maintainers · 补充完整的用例与证据字段术语表条目、临时状态和 GitHub 原生链接。"
-  - "2026-07-12 16:36 · project-maintainers · 将评估用例与环境 trace sink 隔离。"
-  - "2026-07-12 16:34 · project-maintainers · 补全证据格式与结论边界术语表条目。"
-  - "2026-07-12 16:32 · project-maintainers · 要求 selected/result 精确覆盖，并拒绝空选择。"
-  - "2026-07-12 16:27 · project-maintainers · 创建 Public V1 离线设计与门禁契约。"
+  - "2026-07-12 17:16 · zl-6688 · 补充完整的用例与证据字段术语表条目、临时状态和 GitHub 原生链接。"
+  - "2026-07-12 16:36 · zl-6688 · 将评估用例与环境 trace sink 隔离。"
+  - "2026-07-12 16:34 · zl-6688 · 补全证据格式与结论边界术语表条目。"
+  - "2026-07-12 16:32 · zl-6688 · 要求 selected/result 精确覆盖，并拒绝空选择。"
+  - "2026-07-12 16:27 · zl-6688 · 创建 Public V1 离线设计与门禁契约。"
 ---
 
 # 上下文预算离线评估设计
 
-[English](context-budget-design.md) | [简体中文](context-budget-design.zh-CN.md)
+[English](./context-budget-design.md) | [简体中文](./context-budget-design.zh-CN.md)
 
 ## 1. 术语表
 

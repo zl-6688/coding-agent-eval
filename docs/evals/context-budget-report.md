@@ -4,25 +4,25 @@ type: eval-report
 status: provisional
 created: 2026-07-12 16:27
 updated: 2026-07-12 23:44
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Provisional WORKTREE evidence for the five-case context-budget mechanism gate.
 refs:
   - "context-budget-design.md"
   - "evidence/context-budget.jsonl"
   - "../../eval/context_eval/run.py"
 changelog:
-  - "2026-07-12 23:44 · project-maintainers · Aligned report metadata with the final inclusive WORKTREE evidence."
-  - "2026-07-12 19:00 · project-maintainers · Refreshed canonical evidence after normalizing the staged source snapshot."
-  - "2026-07-12 17:16 · project-maintainers · Added complete case and machine-field glossary entries, provisional status, and GitHub-native links."
-  - "2026-07-12 16:36 · project-maintainers · Regenerated evidence after removing ambient trace side effects."
-  - "2026-07-12 16:34 · project-maintainers · Completed glossary entries and replaced raw field names in conclusions."
-  - "2026-07-12 16:32 · project-maintainers · Regenerated evidence after exact result-coverage gate correction."
-  - "2026-07-12 16:27 · project-maintainers · Recorded the first complete provisional offline run."
+  - "2026-07-12 23:44 · zl-6688 · Aligned report metadata with the final inclusive WORKTREE evidence."
+  - "2026-07-12 19:00 · zl-6688 · Refreshed canonical evidence after normalizing the staged source snapshot."
+  - "2026-07-12 17:16 · zl-6688 · Added complete case and machine-field glossary entries, provisional status, and GitHub-native links."
+  - "2026-07-12 16:36 · zl-6688 · Regenerated evidence after removing ambient trace side effects."
+  - "2026-07-12 16:34 · zl-6688 · Completed glossary entries and replaced raw field names in conclusions."
+  - "2026-07-12 16:32 · zl-6688 · Regenerated evidence after exact result-coverage gate correction."
+  - "2026-07-12 16:27 · zl-6688 · Recorded the first complete provisional offline run."
 ---
 
 # Context Budget Offline Evaluation Report
 
-[English](context-budget-report.md) | [简体中文](context-budget-report.zh-CN.md)
+[English](./context-budget-report.md) | [简体中文](./context-budget-report.zh-CN.md)
 
 ## 1. Glossary
 

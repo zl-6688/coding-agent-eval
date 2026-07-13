@@ -4,7 +4,7 @@ type: eval-report
 status: complete
 created: 2026-07-13
 updated: 2026-07-13
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 跨会话 AutoMemory A/B、精确性、漂移、忽略与临时上下文评估结果。
 refs:
   - "automemory-design.md"
@@ -16,7 +16,7 @@ refs:
 
 # AutoMemory 评估报告
 
-[English](automemory-report.md) | [简体中文](automemory-report.zh-CN.md)
+[English](./automemory-report.md) | [简体中文](./automemory-report.zh-CN.md)
 
 > **实验快照：** 2026-07-07
 >

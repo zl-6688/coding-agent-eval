@@ -4,17 +4,17 @@ type: module-spec
 status: active
 created: 2026-07-13 12:46
 updated: 2026-07-13 18:52
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: Runtime tracing, privacy boundaries, local visualization, and trace-to-score diagnosis.
 refs: ["../obs/trace.py", "../obs/viewer.py", "../obs/otel.py", "../agent/runtime/observability.py", "../scripts/start_phoenix.py", "../eval/memory/to_phoenix.py", "../eval/memory/aggregate_phoenix.py"]
 changelog:
-  - "2026-07-13 18:52 · project-maintainers · Added the verified Phoenix startup, trace inspection, and memory-eval review workflow"
-  - "2026-07-13 12:46 · project-maintainers · Added the public observability overview and evidence boundaries"
+  - "2026-07-13 18:52 · zl-6688 · Added the verified Phoenix startup, trace inspection, and memory-eval review workflow"
+  - "2026-07-13 12:46 · zl-6688 · Added the public observability overview and evidence boundaries"
 ---
 
 # Observability
 
-[English](observability.md) | [简体中文](observability.zh-CN.md)
+[English](./observability.md) | [简体中文](./observability.zh-CN.md)
 
 The observability plane turns an agent run into inspectable evidence: which
 turn made a decision, which tool changed the repository, where an error

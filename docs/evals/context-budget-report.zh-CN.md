@@ -4,25 +4,25 @@ type: eval-report
 status: provisional
 created: 2026-07-12 16:27
 updated: 2026-07-12 23:44
-authors: [project-maintainers]
+authors: [zl-6688]
 summary: 上下文预算机制五用例门禁的临时 WORKTREE 证据。
 refs:
   - "context-budget-design.md"
   - "evidence/context-budget.jsonl"
   - "../../eval/context_eval/run.py"
 changelog:
-  - "2026-07-12 23:44 · project-maintainers · 将报告元数据与最终的完整 WORKTREE 证据对齐。"
-  - "2026-07-12 19:00 · project-maintainers · 规范化暂存源码快照后，刷新标准证据。"
-  - "2026-07-12 17:16 · project-maintainers · 补全用例与机器字段的术语表条目、临时状态及 GitHub 原生链接。"
-  - "2026-07-12 16:36 · project-maintainers · 移除环境 trace 副作用后重新生成证据。"
-  - "2026-07-12 16:34 · project-maintainers · 补全术语表条目，并在结论中用可读名称替代原始字段名。"
-  - "2026-07-12 16:32 · project-maintainers · 修正精确结果覆盖门禁后重新生成证据。"
-  - "2026-07-12 16:27 · project-maintainers · 记录第一轮完整的临时离线运行。"
+  - "2026-07-12 23:44 · zl-6688 · 将报告元数据与最终的完整 WORKTREE 证据对齐。"
+  - "2026-07-12 19:00 · zl-6688 · 规范化暂存源码快照后，刷新标准证据。"
+  - "2026-07-12 17:16 · zl-6688 · 补全用例与机器字段的术语表条目、临时状态及 GitHub 原生链接。"
+  - "2026-07-12 16:36 · zl-6688 · 移除环境 trace 副作用后重新生成证据。"
+  - "2026-07-12 16:34 · zl-6688 · 补全术语表条目，并在结论中用可读名称替代原始字段名。"
+  - "2026-07-12 16:32 · zl-6688 · 修正精确结果覆盖门禁后重新生成证据。"
+  - "2026-07-12 16:27 · zl-6688 · 记录第一轮完整的临时离线运行。"
 ---
 
 # 上下文预算离线评估报告
 
-[English](context-budget-report.md) | [简体中文](context-budget-report.zh-CN.md)
+[English](./context-budget-report.md) | [简体中文](./context-budget-report.zh-CN.md)
 
 ## 1. 术语表
 
