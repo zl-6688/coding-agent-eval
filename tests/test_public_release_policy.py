@@ -275,6 +275,16 @@ def test_ci_explicit_pytest_node_ids_are_collectable():
     assert collected.returncode == 0, collected.stdout + collected.stderr
 
 
+def test_ci_installs_ripgrep_before_runtime_contracts():
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(
+        encoding="utf-8"
+    )
+
+    install = workflow.index("sudo apt-get install --yes ripgrep")
+    contracts = workflow.index("Run POSIX filesystem safety contracts")
+    assert install < contracts
+
+
 def test_relative_import_targets_exist_in_the_candidate_tree():
     violations = []
     for path in sorted(ROOT.rglob("*.py")):

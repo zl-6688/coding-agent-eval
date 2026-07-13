@@ -33,6 +33,12 @@ jobs:
           echo "ACE_HOME=$RUNNER_TEMP/ace-home" >> "$GITHUB_ENV"
           echo "TRACES_DIR=$RUNNER_TEMP/traces" >> "$GITHUB_ENV"
 
+      - name: Install runtime test tools
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ripgrep
+
       - name: Build source and wheel distributions
         id: build
         shell: bash
